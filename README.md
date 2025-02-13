@@ -1,5 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/kEz0V4IK)
 //QUES 1
+
 import java.util.Scanner;
 
 class ATM {
@@ -50,6 +51,41 @@ class ATM {
             System.out.println("Error: " + e.getMessage());
         } finally {
             atm.displayBalance(); 
+            scanner.close();
+        }
+    }
+}
+
+
+//ques 2
+import java.util.Scanner;
+
+public class SquareRootCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        
+        try {
+            
+            String input = scanner.nextLine();
+            double number = Double.parseDouble(input);
+            
+            
+            if (number < 0) {
+                throw new IllegalArgumentException("Cannot calculate the square root of a negative number.");
+            }
+            
+            
+            double result = Math.sqrt(number);
+            System.out.println("The square root of " + number + " is: " + result);
+        } catch (NumberFormatException e) {
+            
+            System.out.println("Invalid input! Please enter a valid numeric value.");
+        } catch (IllegalArgumentException e) {
+            
+            System.out.println(e.getMessage());
+        } finally {
             scanner.close();
         }
     }
